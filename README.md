@@ -1,15 +1,37 @@
-# VAN Website
+# VAN Conference Website
 
-AI와 데이터를 기반으로 금융투자와 보건의료 분야의 변화를 연구하는 VAN의 공식 웹사이트 프론트엔드입니다.
+VAN Conference 2026을 중심으로 향후 컨퍼런스와 공동 포럼을 계속 추가할 수 있도록 만든 공식 컨퍼런스 웹사이트 프론트엔드입니다.
 
-## 처음 실행하기
+## 현재 미리보기
+
+- 한국어: https://namuking1.github.io/van_website/ko/
+- English: https://namuking1.github.io/van_website/en/
+- 2026 영구 상세 URL: https://namuking1.github.io/van_website/ko/conference/2026/
+
+## 구현 범위
+
+- HOME
+- CONFERENCE
+- ABOUT
+- APPLICATION
+- PARTNERS
+- ARCHIVE
+- CONTACT
+- VAN Conference 2026 영구 상세 페이지
+- 한국어 `/ko/` 및 영어 `/en/` 정적 URL
+- 휴대폰·태블릿·데스크톱 반응형 화면
+- 페이지별 title, description, canonical, hreflang, Open Graph
+- Organization, WebSite, Breadcrumb, Event 구조화 데이터
+- 정적 `robots.txt`, `sitemap.xml`, 404 페이지
+
+Astro가 빌드 시 각 URL의 완성된 HTML을 생성합니다. 따라서 검색 로봇이 JavaScript를 실행하지 않아도 주요 본문을 읽을 수 있습니다. 모바일 메뉴도 JavaScript가 필요한 커스텀 드로어 대신 브라우저 기본 `details` 요소를 사용합니다.
+
+## 로컬 실행
 
 ### 준비물
 
 - Node.js 24
 - npm
-
-### GitHub에서 내려받은 경우
 
 ```bash
 git clone https://github.com/namuking1/van_website.git
@@ -18,84 +40,47 @@ npm ci
 npm run dev
 ```
 
-터미널에 표시되는 주소를 브라우저에서 엽니다. 기본 주소는 `http://localhost:5173`입니다.
+브라우저에서 `http://localhost:4321/ko/`를 엽니다.
 
-Windows PowerShell에서 실행 정책 때문에 `npm` 명령이 차단되면 `npm` 대신 `npm.cmd`를 사용하거나 명령 프롬프트를 엽니다.
-
-```powershell
-npm.cmd ci
-npm.cmd run dev
-```
-
-Git을 사용하지 않는 경우 GitHub의 `Code` 버튼에서 `Download ZIP`을 선택하고 압축을 푼 다음, 해당 폴더에서 아래 명령을 실행해도 됩니다.
-
-```bash
-npm ci
-npm run dev
-```
-
-같은 네트워크의 다른 기기에서 모바일 화면을 확인하려면 다음 명령을 사용합니다.
+같은 Wi-Fi의 휴대폰에서 확인하려면 아래 명령을 실행한 뒤 터미널의 `Network` 주소 뒤에 `/ko/`를 붙여 접속합니다.
 
 ```bash
 npm run dev:share
 ```
 
-터미널에 표시되는 `Network` 주소를 같은 Wi-Fi에 연결된 휴대폰에서 엽니다. Windows 방화벽이 연결 허용을 요청할 수 있습니다.
-
-## 페이지 구성
-
-- 홈: VAN의 핵심 메시지, 운영 원칙, 부서 미리보기, 최근 활동
-- VAN 소개: 비전, 목표, 조직, 2022년부터 2025년까지의 연혁
-- 부서 소개: AI혁신부, 금융투자리서치부, 보건의료언론부, 대외협력부
-- 소식·아카이브: 행사, 프로젝트, 미디어, 언론보도와 분류 필터
-
-## 핵심 기능
-
-- 전체 화면 대표 배경과 스크롤 페이드 효과
-- 데스크톱·태블릿·모바일 반응형 화면
-- 모바일 내비게이션
-- 아카이브 분류 필터
-- 키보드 접근성과 모션 감소 설정 지원
-- 페이지 제목, 설명, 파비콘 등 기본 검색 노출 설정
-- 화면과 콘텐츠 데이터를 분리한 구조
-
-## 콘텐츠 수정 위치
-
-- 부서·아카이브·운영 원칙: `src/data/content.js`
-- 홈 화면: `src/pages/Home.jsx`
-- VAN 소개 및 연혁: `src/pages/Company.jsx`
-- 부서 소개: `src/pages/Service.jsx`
-- 소식·아카이브: `src/pages/Archive.jsx`
-- 대표 이미지: `src/assets/hero-intelligence-panel.webp`
-
-기획팀을 위한 자세한 실행 및 수정 안내는 [기획팀 전달 가이드](docs/PLANNING_HANDOFF.md)를 참고해 주세요.
+Windows PowerShell 실행 정책 때문에 `npm`이 차단되면 `npm.cmd`를 사용합니다.
 
 ## 검사 및 빌드
 
 ```bash
 npm run check
-```
-
-검사가 통과하면 배포 가능한 파일이 `dist` 폴더에 생성됩니다. GitHub Actions도 `main`과 `dev` 브랜치의 코드를 같은 방식으로 검사하고, 성공한 빌드를 14일 동안 Artifact로 제공합니다. Artifact는 내려받는 빌드 파일이며, 브라우저에서 바로 열리는 공개 웹사이트 주소는 아닙니다.
-
-공개 웹사이트는 [GitHub Pages](https://namuking1.github.io/van_website/)에서 확인할 수 있습니다. `main` 브랜치에 코드를 올리면 GitHub Actions가 검사와 빌드를 수행한 뒤 자동으로 배포합니다.
-
-GitHub Pages용 정적 파일을 로컬에서 만들려면 아래 명령을 실행합니다. 이 빌드는 `van_website` 저장소 경로와 정적 호스팅에 맞게 해시 라우팅을 사용합니다.
-
-```bash
 npm run build:pages
 ```
 
+- `npm run check`: 코드 검사 후 공식 도메인 기준 정적 빌드
+- `npm run build:pages`: 현재 개인 GitHub Pages 경로 기준 정적 빌드
+
+`main` 브랜치에 병합하면 GitHub Actions가 검사와 배포를 자동 실행합니다.
+
+## 콘텐츠 수정 위치
+
+- 한·영 문구, 페이지 설명, 프로그램 방향: `src/data/conference.js`
+- 전체 레이아웃과 SEO: `src/layouts/BaseLayout.astro`
+- 헤더·모바일 메뉴: `src/components/SiteHeader.astro`
+- 페이지 화면: `src/pages/[lang]/[...slug].astro`
+- 디자인과 반응형: `src/styles/global.css`
+
+기획팀용 수정 안내와 확정이 필요한 항목은 [기획팀 전달 가이드](docs/PLANNING_HANDOFF.md)를 참고합니다.
+
+## 공식 도메인 연결
+
+현재 배포는 `namuking1.github.io/van_website`에서 확인합니다. 공식 도메인 연결 시 GitHub Pages의 Custom domain을 설정하고, 빌드 환경의 `SITE_URL`을 확정된 HTTPS 도메인으로, `BASE_PATH`를 `/`로 변경합니다.
+
+기획안에 전달된 도메인 문자열이 인코딩된 형태이므로 실제 사용할 정확한 영문 도메인과 HTTPS 적용 여부를 확인한 뒤 연결해야 합니다. 기본 공식 도메인 값은 `https://www.vanconf.com`으로 준비되어 있습니다.
+
 ## 기술 구성
 
-- React 19
-- Vite 8
-- React Router 8
-- Zustand 5
-- CSS
-
-외부 UI 템플릿이나 UI 컴포넌트 라이브러리는 사용하지 않았으며, VAN의 파란색·남색 계열을 기준으로 프로젝트 전용 화면을 구성했습니다. 사용한 개발 라이브러리는 각 패키지의 오픈소스 라이선스를 따릅니다.
-
-## 현재 범위
-
-이 저장소는 공개 웹페이지용 프론트엔드입니다. 관리자 CMS, 문의 저장·알림, 회원 기능 및 실제 백엔드 API는 포함하지 않습니다.
+- Astro 7 정적 사이트 생성
+- HTML / CSS
+- oxlint
+- GitHub Actions / GitHub Pages

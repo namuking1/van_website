@@ -1,32 +1,42 @@
-# VAN 공식 홈페이지 기획팀 전달 가이드
+# VAN Conference 웹사이트 기획팀 전달 가이드
 
-이 문서는 개발 환경에 익숙하지 않은 팀원이 VAN 공식 홈페이지를 내려받아 확인하고, 콘텐츠 수정 위치를 찾을 수 있도록 작성했습니다.
+## 1. 화면만 확인하기
 
-## 1. 가장 쉬운 실행 방법
+설치 없이 아래 링크를 열면 됩니다.
 
-1. Node.js 24를 설치합니다.
-2. 저장소 페이지에서 `Code`를 누르고 `Download ZIP`을 선택합니다.
-3. 내려받은 ZIP 파일의 압축을 풉니다.
-4. 압축을 푼 폴더에서 터미널을 엽니다.
-5. 아래 명령을 순서대로 실행합니다.
+- 한국어 홈: https://namuking1.github.io/van_website/ko/
+- 영어 홈: https://namuking1.github.io/van_website/en/
+- 2026 행사 상세: https://namuking1.github.io/van_website/ko/conference/2026/
 
-```bash
-npm ci
-npm run dev
-```
+## 2. 기획안 반영 내용
 
-6. 터미널에 표시되는 `Local` 주소를 브라우저에서 엽니다.
+- VAN 소개형 홈페이지에서 VAN Conference 중심 허브로 전환
+- 최신 행사인 VAN Conference 2026을 HOME에 가장 크게 배치
+- HOME, CONFERENCE, ABOUT, APPLICATION, PARTNERS, ARCHIVE, CONTACT 구성
+- 컨퍼런스별 영구 상세 URL 제공
+- 모든 페이지를 한국어와 영어의 별도 URL로 생성
+- PC, 태블릿, 휴대폰 반응형 적용
+- 검색 로봇이 JavaScript 없이 읽을 수 있는 정적 HTML 생성
+- 페이지별 기본 SEO와 sitemap, robots.txt, 구조화 데이터 적용
 
-실행을 끝낼 때는 터미널에서 `Ctrl + C`를 누릅니다.
+## 3. 아직 기획 확정이 필요한 내용
 
-Windows PowerShell에서 실행 정책 때문에 `npm` 명령이 차단되면 명령 프롬프트를 사용하거나 아래처럼 `npm.cmd`를 실행합니다.
+아래 정보는 전달받지 못했으므로 웹사이트에 임의 값을 넣지 않고 `공개 예정` 또는 `준비 중`으로 표시했습니다.
 
-```powershell
-npm.cmd ci
-npm.cmd run dev
-```
+- VAN Conference 2026 정확한 행사명 또는 공식 슬로건
+- 날짜와 시간
+- 장소 및 온·오프라인 운영 여부
+- 주최·주관·후원 기관
+- 세부 프로그램과 연사
+- 참가 신청 오픈일과 신청 URL
+- 발표자·운영진 모집 일정과 지원 URL
+- 공식 문의 이메일 또는 문의 폼
+- 파트너 로고와 노출 순서
+- 정확한 공식 도메인과 HTTPS 주소
 
-## 2. Git을 사용하는 경우
+확정된 내용을 전달받으면 `src/data/conference.js`의 한국어·영어 문구를 수정합니다.
+
+## 4. 직접 실행하기
 
 ```bash
 git clone https://github.com/namuking1/van_website.git
@@ -35,88 +45,31 @@ npm ci
 npm run dev
 ```
 
-이 저장소는 공개 상태이므로 별도의 조직 권한 없이 내려받을 수 있습니다. 설치 없이 화면만 확인하려면 [배포된 웹사이트](https://namuking1.github.io/van_website/)를 엽니다.
+브라우저에서 `http://localhost:4321/ko/`를 엽니다.
 
-## 3. 모바일 화면 확인
-
-컴퓨터와 휴대폰을 같은 Wi-Fi에 연결한 다음 아래 명령을 실행합니다.
+휴대폰과 컴퓨터가 같은 Wi-Fi에 연결되어 있다면 아래 명령을 실행합니다.
 
 ```bash
 npm run dev:share
 ```
 
-터미널에 표시되는 `Network` 주소를 휴대폰 브라우저에 입력합니다. 주소가 열리지 않으면 Windows 방화벽에서 Node.js의 개인 네트워크 통신을 허용했는지 확인합니다.
+터미널의 `Network` 주소 뒤에 `/ko/`를 붙여 휴대폰 브라우저에서 엽니다.
 
-## 4. 콘텐츠 수정 위치
+## 5. GitHub에서 문구 수정하기
 
-반복되는 부서, 아카이브, 운영 원칙 데이터는 `src/data/content.js`에 모여 있습니다.
+1. GitHub 저장소에서 `src/data/conference.js`를 엽니다.
+2. 연필 아이콘을 누릅니다.
+3. `ko`는 한국어, `en`은 영어 문구입니다.
+4. 수정 후 별도 브랜치를 만들고 Pull Request를 요청합니다.
+5. `main`에 병합되면 자동 검사와 배포가 실행됩니다.
 
-### 부서 수정
+## 6. 새 컨퍼런스 추가 원칙
 
-`programs` 배열에서 다음 항목을 수정합니다.
+2027 행사를 추가할 때 2026 페이지를 덮어쓰지 않습니다. 새 영구 URL을 추가하고 기존 2026 URL과 기록은 그대로 보존합니다.
 
-- `title`: 부서명
-- `summary`: 목록에 표시하는 짧은 소개
-- `description`: 부서 상세 설명
-- `tags`: 주요 활동 태그
+예시:
 
-### 소식·아카이브 수정
-
-`archiveItems` 배열에서 다음 항목을 수정합니다.
-
-- `category`: 행사, 프로젝트, 미디어, 언론보도
-- `title`: 항목 제목
-- `description`: 항목 설명
-- `meta`: 일정 또는 담당 부서 등 보조 정보
-
-새 항목을 추가할 때는 기존 항목 하나를 복사한 뒤 `id`가 겹치지 않도록 변경합니다.
-
-### 페이지 문구 수정
-
-- 홈: `src/pages/Home.jsx`
-- VAN 소개 및 연혁: `src/pages/Company.jsx`
-- 부서 소개: `src/pages/Service.jsx`
-- 소식·아카이브: `src/pages/Archive.jsx`
-- 공통 메뉴: `src/components/Header.jsx`
-- 공통 하단 영역: `src/components/Footer.jsx`
-
-### 대표 이미지 교체
-
-`src/assets/hero-intelligence-panel.webp`를 같은 파일명으로 교체하면 홈 대표 이미지가 변경됩니다. 화면 속도 저하를 막기 위해 WebP 형식을 권장합니다. 외부 이미지를 사용할 때는 공개 전에 출처와 사용 권한을 확인합니다.
-
-## 5. 수정 후 확인
-
-아래 명령 한 번으로 코드 검사와 배포용 빌드를 확인합니다.
-
-```bash
-npm run check
-```
-
-성공하면 `dist` 폴더가 생성됩니다. 오류가 발생하면 터미널의 첫 번째 오류 메시지와 수정한 파일명을 개발팀에 전달합니다.
-
-## 6. GitHub Actions 결과 내려받기
-
-1. GitHub 저장소의 `Actions` 탭을 엽니다.
-2. `Build website`에서 성공한 실행을 선택합니다.
-3. 화면 아래의 `Artifacts`에서 `van-website-...` 파일을 내려받습니다.
-
-Artifact는 검사에 성공한 배포용 정적 파일입니다. 공개 웹사이트 주소가 아니며, 소스 코드를 수정하려면 저장소의 `Code`에서 전체 코드를 내려받아야 합니다.
-
-## 7. 개발팀에 전달할 정보
-
-문제를 전달할 때 아래 내용을 함께 보내면 확인이 빠릅니다.
-
-- 사용한 브랜치 또는 커밋 링크
-- 문제가 발생한 페이지 주소
-- 수행한 작업
-- 터미널의 오류 메시지
-- 화면 캡처
-
-## 8. 현재 포함되지 않은 기능
-
-- 관리자 CMS
-- 문의 데이터 저장 및 알림
-- 회원·로그인
-- 실제 백엔드 API
-
-위 기능은 별도 백엔드 또는 관리 도구와 연동해야 합니다.
+- `/ko/conference/2026/`
+- `/ko/conference/2027/`
+- `/en/conference/2026/`
+- `/en/conference/2027/`
