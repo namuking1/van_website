@@ -1,5 +1,5 @@
 {
-  "name": "van",
+  "name": "van-conference",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,25 +7,19 @@
     "node": ">=24.0.0"
   },
   "scripts": {
-    "dev": "vite",
-    "dev:share": "vite --host 0.0.0.0",
-    "build": "vite build",
-    "build:pages": "vite build --mode pages --base=/van_website/",
-    "lint": "oxlint",
-    "preview": "vite preview",
+    "dev": "astro dev",
+    "dev:share": "astro dev --host 0.0.0.0",
+    "build": "astro build",
+    "build:pages": "cross-env SITE_URL=https://namuking1.github.io BASE_PATH=/van_website astro build",
+    "lint": "oxlint astro.config.mjs src/data src/pages",
+    "preview": "astro preview",
     "check": "npm run lint && npm run build"
   },
   "dependencies": {
-    "react": "^19.2.8",
-    "react-dom": "^19.2.8",
-    "react-router": "^8.3.0",
-    "zustand": "^5.0.15"
+    "astro": "7.2.6"
   },
   "devDependencies": {
-    "@types/react": "^19.2.17",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.4",
-    "oxlint": "^1.75.0",
-    "vite": "^8.2.0"
+    "cross-env": "10.1.0",
+    "oxlint": "^1.75.0"
   }
 }
