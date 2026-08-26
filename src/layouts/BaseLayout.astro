@@ -3,6 +3,7 @@ import SiteFooter from '../components/SiteFooter.astro'
 import SiteHeader from '../components/SiteHeader.astro'
 import { basePath, content, routePath } from '../data/conference.js'
 import '../styles/global.css'
+import '../styles/simple.css'
 
 const { lang = 'ko', pageKey = 'home', slug = '', title, description } = Astro.props
 const copy = content[lang]
@@ -73,7 +74,7 @@ if (pageKey === 'conference2026') {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0b1728" />
+    <meta name="theme-color" content="#0b2037" />
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <title>{title}</title>

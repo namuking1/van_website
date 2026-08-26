@@ -20,7 +20,7 @@ VAN(Veritas Academiae Nexus)의 소개, 활동 영역, 컨퍼런스, 소식과 �
 - ARCHIVE
 - CONTACT
 - VAN Conference 2026 영구 상세 페이지
-- 네이비·앤티크 골드·아이보리 기반 기관형 편집 디자인
+- 짙은 네이비·화이트·블루그레이 기반의 심플한 반응형 디자인
 - 한국어 `/ko/` 및 영어 `/en/` 정적 URL
 - 휴대폰·태블릿·데스크톱 반응형 화면
 - 페이지별 title, description, canonical, hreflang, Open Graph

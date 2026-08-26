@@ -11,7 +11,7 @@
 
 ## 2. 기획안 반영 내용
 
-- 참고 시안의 네이비·골드·아이보리 톤과 세리프 중심 기관형 디자인 반영
+- 참고 시안의 짙은 네이비 정체성은 유지하면서 장식과 세리프 사용을 줄인 심플한 디자인 반영
 - VAN 소개와 정체성을 HOME에 가장 크게 배치하고 최신 컨퍼런스로 연결
 - HOME, ABOUT, DEPARTMENTS, CONFERENCE, ARCHIVE, CONTACT 중심 내비게이션 구성
 - APPLICATION과 PARTNERS는 관련 화면의 CTA와 푸터에서 계속 접근 가능
