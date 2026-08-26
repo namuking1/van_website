@@ -516,6 +516,10 @@ h3 {
   color: #16334e;
   border-color: var(--line-light);
   background: #dceaf3;
+  writing-mode: horizontal-tb;
+  transform: none;
+  white-space: nowrap;
+  letter-spacing: -0.04em;
 }
 
 .archive-year {
