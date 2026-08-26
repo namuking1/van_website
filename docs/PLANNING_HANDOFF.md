@@ -1,32 +1,37 @@
-# VAN Conference 웹사이트 기획팀 전달 가이드
+# VAN 공식 홈페이지 기획팀 전달 가이드
 
 ## 1. 화면만 확인하기
 
 설치 없이 아래 링크를 열면 됩니다.
 
-- 한국어 홈: https://namuking1.github.io/van_website/ko/
-- 영어 홈: https://namuking1.github.io/van_website/en/
-- 2026 행사 상세: https://namuking1.github.io/van_website/ko/conference/2026/
+- 한국어 홈: https://van-website-kappa.vercel.app/ko/
+- 영어 홈: https://van-website-kappa.vercel.app/en/
+- 부서·활동 영역: https://van-website-kappa.vercel.app/ko/departments/
+- 2026 행사 상세: https://van-website-kappa.vercel.app/ko/conference/2026/
 
 ## 2. 기획안 반영 내용
 
-- VAN 소개형 홈페이지에서 VAN Conference 중심 허브로 전환
-- 최신 행사인 VAN Conference 2026을 HOME에 가장 크게 배치
-- HOME, CONFERENCE, ABOUT, APPLICATION, PARTNERS, ARCHIVE, CONTACT 구성
+- 참고 시안의 네이비·골드·아이보리 톤과 세리프 중심 기관형 디자인 반영
+- VAN 소개와 정체성을 HOME에 가장 크게 배치하고 최신 컨퍼런스로 연결
+- HOME, ABOUT, DEPARTMENTS, CONFERENCE, ARCHIVE, CONTACT 중심 내비게이션 구성
+- APPLICATION과 PARTNERS는 관련 화면의 CTA와 푸터에서 계속 접근 가능
 - 컨퍼런스별 영구 상세 URL 제공
 - 모든 페이지를 한국어와 영어의 별도 URL로 생성
 - PC, 태블릿, 휴대폰 반응형 적용
+- 휴대폰 전용 메뉴 적용
 - 검색 로봇이 JavaScript 없이 읽을 수 있는 정적 HTML 생성
 - 페이지별 기본 SEO와 sitemap, robots.txt, 구조화 데이터 적용
 
 ## 3. 아직 기획 확정이 필요한 내용
 
-아래 정보는 전달받지 못했으므로 웹사이트에 임의 값을 넣지 않고 `공개 예정` 또는 `준비 중`으로 표시했습니다.
+아래 정보는 전달받지 못했으므로 웹사이트에 임의 값을 넣지 않고 `공개 예정`, `준비 중`, `기획팀 확인 전`으로 표시했습니다.
 
 - VAN Conference 2026 정확한 행사명 또는 공식 슬로건
 - 날짜와 시간
 - 장소 및 온·오프라인 운영 여부
 - 주최·주관·후원 기관
+- 공식 부서명과 부서별 담당자
+- 실제 소식·기사 원문과 대표 이미지
 - 세부 프로그램과 연사
 - 참가 신청 오픈일과 신청 URL
 - 발표자·운영진 모집 일정과 지원 URL

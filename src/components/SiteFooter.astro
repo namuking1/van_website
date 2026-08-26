@@ -9,12 +9,13 @@ const copy = content[lang]
   <div class="footer-orbit" aria-hidden="true"><span>VAN</span></div>
   <div class="footer-inner">
     <div>
-      <p class="footer-kicker">VAN CONFERENCE</p>
+      <p class="footer-kicker">VERITAS · ACADEMIAE · NEXUS</p>
       <p class="footer-line">{copy.footer.line}</p>
     </div>
     <nav aria-label="Footer navigation">
-      <a href={basePath(routePath(lang, 'conference'))}>{copy.nav.conference}</a>
-      <a href={basePath(routePath(lang, 'partners'))}>{copy.nav.partners}</a>
+      <a href={basePath(routePath(lang, 'about'))}>{copy.nav.about}</a>
+      <a href={basePath(routePath(lang, 'departments'))}>{copy.nav.departments}</a>
+      <a href={basePath(routePath(lang, 'archive'))}>{copy.nav.archive}</a>
       <a href={basePath(routePath(lang, 'contact'))}>{copy.nav.contact}</a>
     </nav>
   </div>
