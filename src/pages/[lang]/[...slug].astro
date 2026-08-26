@@ -28,42 +28,40 @@ const link = (target) => basePath(routePath(lang, target))
 <BaseLayout lang={lang} pageKey={pageKey} slug={slug} title={title} description={description}>
   {pageKey === 'home' && (
     <>
-      <section class="hero hero--home">
-        <div class="noise" aria-hidden="true"></div>
-        <div class="container hero-grid">
-          <div class="hero-copy reveal-block">
+      <section class="van-hero">
+        <div class="van-hero-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div class="container van-hero-inner">
+          <div class="van-emblem" aria-label="VAN, Veritas Academiae Nexus">
+            <span class="van-emblem-kicker">ACADEMIC NETWORK</span>
+            <strong>VAN</strong>
+            <span class="van-emblem-motto">VERITAS · ACADEMIAE · NEXUS</span>
+          </div>
+          <div class="van-hero-copy">
             <p class="eyebrow eyebrow--accent">{page.eyebrow}</p>
             <h1>{page.title}</h1>
             <p class="hero-lead">{page.lead}</p>
             <div class="button-row">
-              <a class="button button--accent" href={link('conference/2026')}>{copy.common.details}<span aria-hidden="true">↗</span></a>
-              <a class="button button--ghost" href={link('application')}>{copy.common.apply}</a>
+              <a class="button button--accent" href={link('about')}>{lang === 'ko' ? 'VAN 소개 보기' : 'Discover VAN'}<span aria-hidden="true">↗</span></a>
+              <a class="button button--ghost" href={link('conference/2026')}>{copy.common.details}</a>
             </div>
             <p class="hero-note"><span aria-hidden="true"></span>{page.note}</p>
           </div>
-          <div class="hero-stage" aria-label="VAN Conference 2026">
-            <div class="stage-orbit stage-orbit--outer" aria-hidden="true"></div>
-            <div class="stage-orbit stage-orbit--inner" aria-hidden="true"></div>
-            <div class="stage-cross" aria-hidden="true"></div>
-            <div class="stage-year">20<br />26</div>
-            <div class="stage-label">AI · FINANCE · HEALTH</div>
-            <div class="stage-status">{copy.common.planning}</div>
-          </div>
         </div>
-        <div class="container hero-index" aria-label="Event information">
-          <div><span>EDITION</span><strong>2026</strong></div>
-          <div><span>{copy.common.schedule}</span><strong>{copy.common.pending}</strong></div>
-          <div><span>{copy.common.venue}</span><strong>{copy.common.pending}</strong></div>
+        <div class="container hero-index" aria-label={lang === 'ko' ? 'VAN 주요 정보' : 'VAN overview'}>
+          <div><span>IDENTITY</span><strong>ACADEMIC NETWORK</strong></div>
+          <div><span>ACTIVITY</span><strong>RESEARCH · FORUM</strong></div>
+          <div><span>NEXT EDITION</span><strong>CONFERENCE 2026</strong></div>
           <div><span>LANGUAGE</span><strong>KO · EN</strong></div>
         </div>
       </section>
 
       <section class="section section--paper">
         <div class="container statement-grid">
-          <p class="section-number">01 / PLATFORM</p>
+          <p class="section-number">I / ABOUT VAN</p>
           <div>
             <h2>{page.statementTitle}</h2>
             <p class="section-lead">{page.statementBody}</p>
+            <a class="text-link text-link--dark" href={link('about')}>{lang === 'ko' ? '소개 자세히 보기' : 'Read our story'}<span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </section>
@@ -71,19 +69,39 @@ const link = (target) => basePath(routePath(lang, target))
       <section class="section section--ink">
         <div class="container section-heading">
           <div>
-            <p class="eyebrow">02 / PROGRAM</p>
+            <p class="eyebrow">II / DEPARTMENTS</p>
             <h2>{page.tracksTitle}</h2>
           </div>
           <p>{page.tracksLead}</p>
         </div>
         <div class="container track-grid">
           {page.tracks.map(([number, name, body]) => (
-            <article class="track-card">
+            <a class="track-card" href={link('departments')}>
               <span class="track-number">{number}</span>
               <h3>{name}</h3>
               <p>{body}</p>
               <span class="card-mark" aria-hidden="true">↗</span>
-            </article>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section class="section section--paper home-updates">
+        <div class="container section-heading section-heading--paper">
+          <div>
+            <p class="eyebrow">III / NEWS & ARCHIVE</p>
+            <h2>{page.updatesTitle}</h2>
+          </div>
+          <p>{page.updatesLead}</p>
+        </div>
+        <div class="container update-list">
+          {page.updates.map(([category, title, body, target], index) => (
+            <a href={link(target)}>
+              <span class="update-index">{String(index + 1).padStart(2, '0')}</span>
+              <span class="update-category">{category}</span>
+              <span class="update-copy"><strong>{title}</strong><small>{body}</small></span>
+              <span class="update-arrow" aria-hidden="true">↗</span>
+            </a>
           ))}
         </div>
       </section>
@@ -91,7 +109,7 @@ const link = (target) => basePath(routePath(lang, target))
       <section class="section section--accent">
         <div class="container bridge">
           <div>
-            <p class="eyebrow">YEAR-ROUND PARTNERSHIP</p>
+            <p class="eyebrow">IV / YEAR-ROUND PARTNERSHIP</p>
             <h2>{page.bridgeTitle}</h2>
             <p>{page.bridgeBody}</p>
           </div>
@@ -202,6 +220,39 @@ const link = (target) => basePath(routePath(lang, target))
       </section>
       <section class="section section--accent">
         <div class="container manifesto"><p class="eyebrow">THE VAN CYCLE</p><h2>{page.modelTitle}</h2><p>{page.modelBody}</p></div>
+      </section>
+    </>
+  )}
+
+  {pageKey === 'departments' && (
+    <>
+      <section class="page-hero page-hero--departments">
+        <div class="container page-hero-grid">
+          <div><p class="eyebrow eyebrow--accent">{page.eyebrow}</p><h1>{page.title}</h1></div>
+          <p class="page-lead">{page.lead}</p>
+        </div>
+      </section>
+      <section class="section section--paper">
+        <div class="container">
+          <p class="section-number">I / ORGANIZATION</p>
+          <h2 class="wide-title">{page.unitsTitle}</h2>
+          <div class="department-grid">
+            {page.units.map(([number, title, body, tags]) => (
+              <article>
+                <span class="department-number">{number}</span>
+                <h3>{title}</h3>
+                <p>{body}</p>
+                <ul>{tags.map((tag) => <li>{tag}</li>)}</ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section class="section section--mist">
+        <div class="container information-status">
+          <div><p class="eyebrow">II / STATUS</p><h2>{page.statusTitle}</h2></div>
+          <p>{page.statusBody}</p>
+        </div>
       </section>
     </>
   )}

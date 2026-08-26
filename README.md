@@ -1,23 +1,26 @@
-# VAN Conference Website
+# VAN Official Website
 
-VAN Conference 2026을 중심으로 향후 컨퍼런스와 공동 포럼을 계속 추가할 수 있도록 만든 공식 컨퍼런스 웹사이트 프론트엔드입니다.
+VAN(Veritas Academiae Nexus)의 소개, 활동 영역, 컨퍼런스, 소식과 아카이브를 한곳에서 확인하는 공식 홈페이지 프론트엔드입니다. VAN Conference 2026과 향후 공동 포럼도 영구 URL로 축적할 수 있습니다.
 
 ## 현재 미리보기
 
-- 한국어: https://namuking1.github.io/van_website/ko/
-- English: https://namuking1.github.io/van_website/en/
-- 2026 영구 상세 URL: https://namuking1.github.io/van_website/ko/conference/2026/
+- Vercel 한국어: https://van-website-kappa.vercel.app/ko/
+- Vercel English: https://van-website-kappa.vercel.app/en/
+- 2026 영구 상세 URL: https://van-website-kappa.vercel.app/ko/conference/2026/
+- GitHub Pages 보조 배포: https://namuking1.github.io/van_website/ko/
 
 ## 구현 범위
 
 - HOME
-- CONFERENCE
 - ABOUT
+- DEPARTMENTS
+- CONFERENCE
 - APPLICATION
 - PARTNERS
 - ARCHIVE
 - CONTACT
 - VAN Conference 2026 영구 상세 페이지
+- 네이비·앤티크 골드·아이보리 기반 기관형 편집 디자인
 - 한국어 `/ko/` 및 영어 `/en/` 정적 URL
 - 휴대폰·태블릿·데스크톱 반응형 화면
 - 페이지별 title, description, canonical, hreflang, Open Graph
@@ -25,6 +28,8 @@ VAN Conference 2026을 중심으로 향후 컨퍼런스와 공동 포럼을 계�
 - 정적 `robots.txt`, `sitemap.xml`, 404 페이지
 
 Astro가 빌드 시 각 URL의 완성된 HTML을 생성합니다. 따라서 검색 로봇이 JavaScript를 실행하지 않아도 주요 본문을 읽을 수 있습니다. 모바일 메뉴도 JavaScript가 필요한 커스텀 드로어 대신 브라우저 기본 `details` 요소를 사용합니다.
+
+현재 부서별 담당자, 공식 문의 주소, 행사 일정·장소 등 기획 확정 전 정보는 임의로 만들지 않고 준비 상태를 명시했습니다.
 
 ## 로컬 실행
 
@@ -60,7 +65,7 @@ npm run build:pages
 - `npm run check`: 코드 검사 후 공식 도메인 기준 정적 빌드
 - `npm run build:pages`: 현재 개인 GitHub Pages 경로 기준 정적 빌드
 
-`main` 브랜치에 병합하면 GitHub Actions가 검사와 배포를 자동 실행합니다.
+`main` 브랜치에 병합하면 GitHub Actions가 검사와 GitHub Pages 배포를 실행하고, 연결된 Vercel 프로젝트도 자동 배포합니다. Vercel 빌드 설정은 `vercel.json`에 고정되어 있습니다.
 
 ## 콘텐츠 수정 위치
 
@@ -74,9 +79,9 @@ npm run build:pages
 
 ## 공식 도메인 연결
 
-현재 배포는 `namuking1.github.io/van_website`에서 확인합니다. 공식 도메인 연결 시 GitHub Pages의 Custom domain을 설정하고, 빌드 환경의 `SITE_URL`을 확정된 HTTPS 도메인으로, `BASE_PATH`를 `/`로 변경합니다.
+현재 대표 배포는 `van-website-kappa.vercel.app`에서 확인합니다. 공식 도메인 연결 시 Vercel Domains에 도메인을 추가하고, 빌드 환경의 `SITE_URL`을 확정된 HTTPS 도메인으로, `BASE_PATH`를 `/`로 설정합니다.
 
-기획안에 전달된 도메인 문자열이 인코딩된 형태이므로 실제 사용할 정확한 영문 도메인과 HTTPS 적용 여부를 확인한 뒤 연결해야 합니다. 기본 공식 도메인 값은 `https://www.vanconf.com`으로 준비되어 있습니다.
+기획안에 전달된 도메인 문자열이 인코딩된 형태이므로 실제 사용할 정확한 영문 도메인과 HTTPS 적용 여부를 확인한 뒤 연결해야 합니다. 도메인 연결 전 canonical 기본값은 현재 작동하는 Vercel 주소이며, 공식 도메인 확정 후 `SITE_URL` 환경변수로 교체합니다.
 
 ## 기술 구성
 
